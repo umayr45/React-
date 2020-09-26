@@ -2,7 +2,7 @@ import React from 'react';
 import { Media,Card, CardImg, CardImgOverlay, CardTitle, CardBody, CardText, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-function RenderMenuItem ({dish, onClick}) {
+function RenderMenuItem ({dish}) {
   return (
       <Card>
           <Link to={`/menu/${dish.id}`} >
