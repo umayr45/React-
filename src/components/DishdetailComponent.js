@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card, CardImg, CardBody, CardText, CardTitle, Breadcrumb, BreadcrumbItem, Button, Modal, ModalHeader, Label, Row, Col, ModalBody } from 'reactstrap';
 import {Link} from 'react-router-dom';
 import { Control, Errors, LocalForm } from 'react-redux-form';
+import LoadingComponent from './LoadingComponent';
 
 
     function RenderComments({comments,addComment,dishId}){
@@ -56,7 +57,26 @@ import { Control, Errors, LocalForm } from 'react-redux-form';
     }
  
     const Dishdetail=(props) =>{
-        if(props.dish!=null){
+        if(props.isLoading){
+            return(<div className='container'> 
+            <div className='row'>
+                
+            <LoadingComponent/>
+
+            </div>
+            </div>)
+        }
+        else if(props.errMess){
+            return(<div className='container'> 
+                <div className='row'>
+                    
+                    <h4>{props.errMess}</h4>
+
+                </div>
+            </div>)
+        }
+
+        else if(props.dish!=null){
             
             return(
                 <div className="container">
